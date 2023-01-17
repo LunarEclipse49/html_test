@@ -1,16 +1,20 @@
 @charset "utf-8";
 
+body {
+    height: 100%
+}
+
 /* character枠 */
 .character {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     font-size: 20px;
-    border: rgb(0, 4, 255) solid 2px;
-    margin: 5px
+    border: rgb(255, 255, 255) solid 2px;
+    margin: 2.5px
 }
 
 .characterList {
-    width: 360px;
+    width: 80%;
 
     list-style: none;
     padding-left: 0;
@@ -18,100 +22,106 @@
     flex-wrap: wrap;
 }
 
+.main {
+    width: 100%;
+    height: calc(100vh - 16px);
+}
+
+.idols {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.idol {
+    height: 40px;
+    border: rgb(0, 0, 0) solid 2px;
+    display: flex;
+}
+
+.idol_name {
+    width: 40px;
+    height: 40px;
+    background-color: aqua;
+    flex-shrink: 0;
+    margin-right: 5px;
+}
+
+.units {
+    overflow-x: scroll;
+    display: flex;
+}
+
+.unit {
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: blue;
+    flex-shrink: 0;
+    margin: 0 1px;
+}
+
+
+
+
 /*===========================================================*/
 /*機能編  5-2-1　3本線が×に*/
 /*===========================================================*/
-@media screen and (max-width:1300px) {
-    .openbtn {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;
-        /*ボタンを最前面に*/
-        cursor: pointer;
-        width: 94px;
-        height: 94px;
-        background: #182578;
-    }
-
-    /*×に変化*/
-    .openbtn span {
-        display: inline-block;
-        transition: all .4s;
-        position: absolute;
-        left: 23px;
-        height: 3px;
-        border-radius: 2px;
-        background-color: #fff;
-        width: 45%;
-    }
-
-    .openbtn span:nth-of-type(1) {
-        top: 33px;
-    }
-
-    .openbtn span:nth-of-type(2) {
-        top: 46px;
-    }
-
-    .openbtn span:nth-of-type(3) {
-        top: 58px;
-    }
-
-    .openbtn.active span:nth-of-type(1) {
-        top: 41px;
-        left: 28px;
-        transform: translateY(6px) rotate(-45deg);
-        width: 30%;
-    }
-
-    .openbtn.active span:nth-of-type(2) {
-        opacity: 0;
-    }
-
-    .openbtn.active span:nth-of-type(3) {
-        top: 52px;
-        left: 28px;
-        transform: translateY(-6px) rotate(45deg);
-        width: 30%;
-    }
+.openbtn {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    /*ボタンを最前面に*/
+    cursor: pointer;
+    width: 94px;
+    height: 94px;
+    background: #182578;
+    transform: scale(1, 0.5) translate(23.5, 23.5);
 }
 
-@media screen and (max-width:768px) {
-    .openbtn {
-        width: 70px;
-        height: 70px;
-    }
-
-    /*×に変化*/
-    .openbtn span {
-        left: 17px;
-    }
-
-    .openbtn span:nth-of-type(1) {
-        top: 20px;
-    }
-
-    .openbtn span:nth-of-type(2) {
-        top: 33px;
-    }
-
-    .openbtn span:nth-of-type(3) {
-        top: 45px;
-    }
-
-    .openbtn.active span:nth-of-type(1) {
-        top: 28px;
-        left: 22px;
-    }
-
-    .openbtn.active span:nth-of-type(3) {
-        top: 40px;
-        left: 22px;
-    }
-
+/*×に変化*/
+.openbtn span {
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 23px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #fff;
+    width: 45%;
 }
+
+.openbtn span:nth-of-type(1) {
+    top: 33px;
+}
+
+.openbtn span:nth-of-type(2) {
+    top: 46px;
+}
+
+.openbtn span:nth-of-type(3) {
+    top: 58px;
+}
+
+.openbtn.active span:nth-of-type(1) {
+    top: 41px;
+    left: 28px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3) {
+    top: 52px;
+    left: 28px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
 
 /*===========================================================*/
 /*機能編  5-1-21 クリックしたら円形背景が拡大（右下から）*/
